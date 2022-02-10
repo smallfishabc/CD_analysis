@@ -26,6 +26,8 @@ def excel_name_edit(old_name):
     new_name=front+'_written'+'.xlsx'
     return new_name
 def write_file_name_csv(dataframe,new_excel_name):
+    dataframe['Solute_Concentration_Experiment'] = \
+    dataframe['Solute_Concentration_Experiment'].astype(float).map("{:.0%}".format)
     for i in range(len(dataframe)):
         print(dataframe.loc[i,'Tube_number'],type(dataframe.loc[i,'Tube_number']),not dataframe.loc[i,'Tube_number'])
         if np.isnan(dataframe.loc[i,'Tube_number']):
